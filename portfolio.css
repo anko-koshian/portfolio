@@ -1,0 +1,601 @@
+/* ブラウザの標準の余白を消す（必須） */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ついでに、すべての要素で「線の太さ」や「余白」を幅に含める設定にしておくとレイアウト崩れを防げます */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+
+
+.sort-btn {
+    background: #b05a8e;
+    padding: 20px;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.sort-btn dt {
+    font-weight: bold;
+    margin: 0 0 10px 0;
+
+}
+
+.sort-btn dd {
+    margin: 0 0 10px 0;
+
+}
+
+.sort-btn ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sort-btn li {
+    margin: 0 10px;
+    list-style: none;
+}
+
+.sort-btn ul li {
+    position: relative;
+    cursor: pointer;
+    padding: 0 0 0 30px;
+    margin: 0 10px 0 0;
+
+}
+
+@media only screen and (max-width: 810px) {
+    .soft-btn li {
+        width: 100%;
+        margin: 0;
+
+    }
+
+    .soft-btn ul li {
+        width: auto;
+    }
+}
+
+.sort-btn ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+}
+
+.sort-btn ul li.active::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0;
+
+    border-left: 2px solid#333;
+    border-bottom: 2px solid #333;
+    width: 16px;
+    height: 0px;
+    transform: rotate(-45deg);
+}
+
+.grid {
+    position: relative;
+}
+
+.item {
+    display: block;
+    position: absolute;
+    list-style: none;
+    width: 33.3%;
+    padding: 0 10px 10px 10px;
+    z-index: 1;
+
+    box-sizing: border-box;
+}
+
+.item-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+
+    /* ★★★ ここから追加：画像を際立たせる魔法 ★★★ */
+
+    /* 1. うっすら白い枠線をつけて、背景との境界をはっきりさせる */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    /* 2. 影をつけて少し浮かせる */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+    /* 3. 角を少しだけ丸くして、洗練された印象に */
+    border-radius: 4px;
+
+    /* 4. ホバーしたときのアニメーション準備 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* マウスを乗せたときに「発光」させて目立たせる */
+.item:hover img {
+    transform: scale(1.02);
+    /* ほんの少し拡大 */
+    border-color: rgba(255, 255, 255, 0.8);
+    /* 枠線を明るく */
+    box-shadow: 0 8px 25px rgba(139, 71, 137, 0.4);
+    /* 紫色の光る影をつける */
+}
+
+.popup-content {
+    max-width: 1100px;
+
+    width: 95%;
+
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+    font-family: sans-serif;
+}
+
+.popup-content h3 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #8b4789;
+    border-bottom: 2px solid #8b4789;
+    padding-bottom: 10px;
+}
+
+.popup-content .tag {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.detail-body {
+    display: flex;
+    /* 横並びにする魔法 */
+    gap: 40px;
+    /* 画像と文章の間隔 */
+    align-items: flex-start;
+    /* 上揃え */
+}
+
+/* 左側の画像 */
+.detail-body>img,
+.detail-body video {
+    width: 60%;
+    /* 幅の6割を画像にする */
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+    margin-bottom: 0;
+    /* 下の余白は消す */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 右側の文章エリア */
+.detail-body .text-area {
+    width: 40%;
+    /* 残りの4割を文章にする */
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- スマホ対応（画面が狭いときは縦並びに戻す） --- */
+@media screen and (max-width: 768px) {
+    .detail-body {
+        display: block;
+        /* 横並び解除 */
+    }
+
+    .detail-body>img,
+    .detail-body video {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .detail-body .text-area {
+        width: 100%;
+    }
+}
+
+/* --- 表紙（ヒーロー）エリアの設定 --- */
+.hero-screen {
+    width: 100%;
+    height: 100vh;
+    /* ★重要：これで画面の高さ100%になります */
+    background: #111;
+    /* 背景色（参考画像っぽく黒にしています。好きな色に変えてOK！） */
+    /* グラデーションにしたい場合は以下のように書きます */
+    /* background: linear-gradient(135deg, #000000, #434343); */
+
+    color: #fff;
+    /* 文字の色 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* 上下中央揃え */
+    align-items: center;
+    /* 左右中央揃え */
+    position: relative;
+}
+
+/* 名前のデザイン */
+.main-title {
+    font-size: 5rem;
+    /* 文字を大きく */
+    font-family: 'Times New Roman', serif;
+    /* 明朝体でおしゃれに */
+    margin: 0;
+    letter-spacing: 0.05em;
+    /* color: #d4af37; */
+    color: #e8a2d5df;
+    /* 参考画像っぽいゴールド色。白(#fff)でもOK */
+}
+
+/* サブタイトルのデザイン */
+.sub-title {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.8;
+    font-family: sans-serif;
+}
+
+/* スクロールしてね、の合図 */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    font-size: 0.8rem;
+    animation: bounce 2s infinite;
+    /* 下で定義した動きを繰り返す */
+}
+
+/* 矢印をふわふわ動かすアニメーション */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+
+
+.works-area {
+    background: #e1bed1;
+
+    padding: 50px 20px;
+
+    min-height: 100vh;
+}
+
+
+
+.myworks-title {
+    color: #000;
+
+    font-size: 5rem;
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+
+/*フィルターのデザインテスト*/
+
+/* --- フィルターボタンエリア全体のデザイン --- */
+.sort-btn {
+    background: transparent;
+    /* 背景色を透明に */
+    padding: 0;
+    margin: 60px auto;
+    /* 上下の余白 */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    /* カテゴリごとの間隔 */
+    max-width: 1000px;
+}
+
+/* 各カテゴリの塊（ALL, MEMBERS...） */
+.sort-btn>li {
+    list-style: none;
+    margin: 0;
+}
+
+/* カテゴリタイトル */
+.sort-btn dt {
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: #555;
+    letter-spacing: 0.15em;
+    /* 文字間隔を広げておしゃれに */
+    text-align: center;
+    margin-bottom: 12px;
+    font-family: sans-serif;
+    opacity: 0.8;
+}
+
+/* ボタンのリスト */
+.sort-btn dd ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* ボタン同士の隙間 */
+    padding: 0;
+    justify-content: center;
+}
+
+.sort-btn dd {
+    margin: 0;
+}
+
+/* --- ボタン個別のデザイン（重要） --- */
+.sort-btn ul li {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    margin: 0;
+
+    /* ボタンの見た目を作る */
+    padding: 6px 20px;
+    /* ボタンの大きさ */
+    border: 1px solid #8b4789;
+    /* 枠線の色（テーマカラー） */
+    border-radius: 50px;
+    /* 角丸にして楕円形にする */
+    background: transparent;
+    color: #8b4789;
+    /* 文字色 */
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    /* ふわっと変化させる */
+}
+
+/* マウスを乗せたとき */
+.sort-btn ul li:hover {
+    background: rgba(139, 71, 137, 0.1);
+    /* 薄い色をつける */
+    transform: translateY(-2px);
+    /* 少し浮く */
+}
+
+/* 選ばれている（Active）とき */
+.sort-btn ul li.active {
+    background: #8b4789;
+    /* 背景を塗りつぶす */
+    color: #fff;
+    /* 文字を白に */
+    box-shadow: 0 4px 10px rgba(139, 71, 137, 0.3);
+    /* 影をつけて浮き出させる */
+}
+
+/* --- 以前のチェックボックスの残骸を消す（必須） --- */
+.sort-btn ul li::before,
+.sort-btn ul li::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+}
+
+/* スマホ対応 */
+@media only screen and (max-width: 810px) {
+    .sort-btn {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+/* --- ★ここから追加：画像2枚並び専用の設定 --- */
+
+/* 元の「画像60%」という設定を上書きして、2枚がきれいに並ぶようにする */
+.detail-body.two-images>img {
+    width: calc(50% - 20px);
+    /* 50%から隙間の半分(20px)を引いた幅 */
+    margin-bottom: 0;
+}
+
+/* スマホの時は縦に2枚並ぶようにする */
+@media screen and (max-width: 768px) {
+    .detail-body.two-images>img {
+        width: 100%;
+        /* スマホなら幅いっぱい */
+        margin-bottom: 20px;
+        /* 画像同士の間隔 */
+    }
+}
+
+
+/* --- ナビゲーションリボン（ヘッダー） --- */
+.page-header {
+    position: fixed;
+    /* スクロールしても上部に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(26, 26, 26, 0.9);
+    /* 少し透ける黒背景 */
+    backdrop-filter: blur(5px);
+    /* すりガラス効果 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 999;
+    /* 一番手前に表示 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-header .logo {
+    color: #fff;
+    font-family: 'Times New Roman', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+}
+
+.page-header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.page-header nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    position: relative;
+    transition: color 0.3s;
+}
+
+/* ホバー時にピンクの線が出るアニメーション */
+.page-header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #b05a8e;
+    /* テーマカラー */
+    transition: width 0.3s;
+}
+
+.page-header nav a:hover::after {
+    width: 100%;
+}
+
+/* --- ABOUT ME エリア --- */
+.about-section {
+    background: #f0f0f0;
+    /* 少しグレーがかった白（参考サイト風） */
+    color: #333;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    /* 画像と文字の間隔 */
+}
+
+/* 画像エリアのデザイン（参考サイト風のズレた枠線） */
+.about-image {
+    position: relative;
+    width: 40%;
+    max-width: 350px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    position: relative;
+    z-index: 2;
+    border: 2px solid #333;
+    /* 黒い枠線でキリッとさせる */
+}
+
+/* 後ろにある装飾の枠 */
+.about-image .img-border {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #b05a8e;
+    /* ピンクの枠線 */
+    z-index: 1;
+    border-radius: 4px;
+}
+
+/* 文字エリアのデザイン */
+.about-text {
+    width: 55%;
+}
+
+.about-text .section-title {
+    font-size: 3rem;
+    font-family: 'Times New Roman', serif;
+    color: #b05a8e;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
+.about-text .name {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.about-text .univ {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.about-text .description {
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* スマホ対応（縦並びにする） */
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        width: 70%;
+        margin-bottom: 30px;
+    }
+
+    .about-text {
+        width: 100%;
+    }
+
+    .page-header {
+        padding: 0 20px;
+    }
+
+    .page-header nav ul {
+        gap: 15px;
+    }
+
+    .page-header nav a {
+        font-size: 0.7rem;
+    }
+}

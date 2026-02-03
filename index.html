@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+    <title>
+
+    </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="portfolio.css">
+
+</head>
+
+<body>
+    <header class="page-header">
+        <h1 class="logo">Ayuka.S</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#works">WORKS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero-screen" id="home">
+        <div class="hero-content">
+            <h1 class="main-title">Ayuka Sugahara</h1>
+            <p class="sub-title">Meiji Univ. / FMS</p>
+        </div>
+        <div class="scroll-down">SCROLL ▼</div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="sakura.jpg" alt="Profile Image">
+                <div class="img-border"></div>
+            </div>
+            <div class="about-text">
+                <h2 class="section-title">ABOUT ME</h2>
+                <h3 class="name">Ayuka Sugahara</h3>
+                <p class="univ">Meiji Univ. / FMS</p>
+                <p class="description">
+                    明治大学 総合数理学部 先端メディアサイエンス学科。<br>
+                    ダンスを小さいことからやっています。<br>
+                    アニメやYouTubeを見るのが大好きです。<br>
+                    最近は舞台にはまっています
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="works-area">
+        <h2 class="myworks-title">My works</h2>
+        <ul class="sort-btn">
+            <li>
+                <dl>
+                    <dt>ALL</dt>
+                    <dd>
+                        <ul>
+                            <li class="all active">ALL</li>
+                        </ul>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>MEMBERS</dt>
+                    <dd>
+                        <ul>
+                            <li class="personal">PERSONAL WORKS</li>
+                            <li class="group">GROUP WORKS</li>
+                            <!-- <li class="personal">PERSONAL WORKS</li> -->
+                        </ul>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>CATEGORY</dt>
+                    <dd>
+                        <ul>
+                            <li class="game">GAMES</li>
+                            <li class="research">RESEARCHES</li>
+                            <li class="video">VIDEO</li>
+                            <li class="other">OTHERS</li>
+                        </ul>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+
+        <ul class="grid">
+            <li class="item personal game">
+                <div class="item-content">
+                    <a href=#detail-epzeriya data-fancybox>
+                        <img src="EPzeriya.png" alt=""></a>
+                </div>
+            </li>
+            <li class="item personal game">
+                <div class="item-content">
+                    <a href=#detail-WPiano data-fancybox>
+                        <img src="MPiano (1).png" alt=""></a>
+                </div>
+            </li>
+            <li class="item personal game">
+                <div class="item-content">
+                    <a href=#detail-typing data-fancybox>
+                        <img src="DUAL.png" alt=""></a>
+                </div>
+            </li>
+            <li class="item personal other">
+                <div class="item-content">
+                    <a href=#detail-CG1 data-fancybox>
+                        <img src="CG1.png" alt=""></a>
+                </div>
+            </li>
+            <li class="item personal other">
+                <div class="item-content">
+                    <a href=#detail-CG2 data-fancybox>
+                        <img src="CG2.png" alt=""></a>
+                </div>
+            </li>
+            <li class="item personal other">
+                <div class="item-content">
+                    <a href=#detail-CG3 data-fancybox>
+                        <img src="CG3.png" alt=""></a>
+                </div>
+            </li>
+            <li class="item personal research">
+                <div class="item-content">
+                    <a href=#detail-eat data-fancybox>
+                        <img src="eat/スライド1.PNG" alt=""></a>
+                </div>
+            </li>
+            <li class="item group other">
+                <div class="item-content">
+                    <a href=#detail-masterAI data-fancybox="group" data-caption="制作時期：2025年">
+                        <img src="masterAI-サムネ.png" alt=""></a>
+                </div>
+            </li>
+            <li class="item group game">
+                <div class="item-content">
+                    <a href=#detail-katana data-fancybox>
+                        <img src="真剣白刃VRポスター.png" alt=""></a>
+                </div>
+            </li>
+            <!-- /*ピタゴラ*/ -->
+            <li class="item personal game">
+                <div class="item-content">
+                    <a href=#detail-pitagora data-fancybox>
+                        <img src="pitagora.png" alt=""></a>
+                </div>
+            </li>
+        </ul>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+        <script src="portfolio.js"></script>
+
+        <div style="display: none;" id="hidden-content-area">
+
+            <div id="detail-mpiano" class="popup-content">
+                <h3>MPiano</h3>
+                <p class="tag">ジャンル：GAME / 制作時期：2025年</p>
+                <div class="detail-body">
+                    <img src="MPiano (1).png" alt="MPianoメイン画像">
+                    <p>
+                        WP演習課題<br>
+                        three.jsを使用して制作した、幻想的なピアノサイトです。<br>
+                        鍵盤をクリックすることで演奏でき、録音することもできます。
+
+                </div>
+            </div>
+
+            <div id="detail-dual" class="popup-content">
+            </div>
+
+            <div style="display: none;" id="hidden-content-area">
+
+                <div id="detail-epzeriya" class="popup-content">
+                    <h3>EPzeriya</h3>
+                    <p class="tag">ジャンル：GAME / 制作時期：2024年</p>
+                    <div class="detail-body">
+                        <video src="ep.MOV" controls autoplay muted loop playsinline></video>
+                        <p>
+                            EP演習課題<br><br>
+                            サイゼリヤのキッズメニューにある間違い探しを、３Dで再現した作品です。プレイヤーは前後にある部屋を移動しながら異なる場所を探し、８つの間違いを発見できたらクリアとなります。<br>
+                            家具は、blenderで配布素材の色付けを行いました。
+                        </p>
+
+                    </div>
+                </div>
+
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+
+            <div style="display: none;" id="hidden-content-area">
+
+                <div id="detail-typing" class="popup-content">
+                    <h3>DUAL VIEW TYPING</h3>
+                    <p class="tag">ジャンル：GAME / 制作時期：2025年</p>
+                    <div class="detail-body">
+                        <video src="CG_final.mp4" controls autoplay muted loop playsinline></video>
+                        <p>
+                            CG基礎最終課題<br><br>
+                            異なる角度から見ると異なる漢字が現れる物体を用いたタイピングゲームです。<br>
+                            文字モデルはblenderで制作しました。
+                        </p>
+
+                    </div>
+                </div>
+
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+
+            <div style="display: none;" id="hidden-content-area">
+
+                <div id="detail-katana" class="popup-content">
+                    <h3>侍　真剣白刃取りVR</h3>
+                    <p class="tag">ジャンル：GAME / 制作時期：2025年</p>
+                    <div class="detail-body">
+                        <video src="真剣白刃VR紹介.mp4" controls autoplay muted loop playsinline></video>
+                        <p>
+                            2年ゼミにてグループ制作を行ったVR作品です。<br>
+                            振り下ろされる刀を両手で受け止める、または横ぶりされる刀をしゃがんで避けるゲームです。<br>
+                            主にステージ制作を担当しました。<br><br>
+
+                            2025オープンキャンパスでは、沢山の方に体験していただきました。<br>
+                        </p>
+
+                    </div>
+                </div>
+
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+            <div style="display: none;" id="hidden-content-area">
+
+                <div id="detail-masterAI" class="popup-content">
+                    <h3>MasterAI</h3>
+                    <p class="tag">ジャンル：ツール / 制作時期：2025年</p>
+                    <div class="detail-body">
+                        <video src="どうがだよ.mp4" controls autoplay muted loop playsinline></video>
+                        <p>
+                            WP実習課題（グループ制作）<br>
+                            様々な生成AIをひとつのサイトで使えるツールです。<br>
+                            作業分担や仕様書の作成機能があります。<br><br>
+
+
+                        </p>
+
+                    </div>
+                </div>
+
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+
+            <div style="display: none;" id="hidden-content-area">
+                <div id="detail-CG1" class="popup-content">
+                    <h3></h3>
+                    <p class="tag">ジャンル：ツール / 制作時期：2025年</p>
+                    <div class="detail-body">
+                        <video src="CG1.mp4" controls autoplay muted loop playsinline></video>
+                        <p>
+                            CG基礎課題1<br>
+                            ミッキーマウスの手をイメージした3Dモデルです。<br>
+                            processingで制作しました。<br>
+                            全体の向きと指の角度が操作可能です。
+                            <br>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+
+            <div style="display: none;" id="hidden-content-area">
+                <div id="detail-CG2" class="popup-content">
+                    <h3></h3>
+                    <p class="tag">ジャンル：ツール / 制作時期：2025年</p>
+                    <div class="detail-body">
+                        <video src="CG2.mp4" controls autoplay muted loop playsinline></video>
+                        <p>
+                            CG基礎課題2<br>
+                            球体に地球儀のテクスチャマッピングを行い、さらにテクスチャフィルタリングを行いました。<br>
+                            全体の向きと光源位置をそれぞれ、キーボードとマウスで操作できます。<br>
+                            processingで制作しました。<br>
+
+                            <br>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+
+
+            <div style="display: none;" id="hidden-content-area">
+                <div id="detail-CG3" class="popup-content">
+                    <h3></h3>
+                    <p class="tag">ジャンル：ツール / 制作時期：2025年</p>
+                    <div class="detail-body">
+                        <video src="CG3.mp4" controls autoplay muted loop playsinline></video>
+                        <p>
+                            CG基礎課題3<br>
+                            新体操のリボンをイメージした3Dモデルです。<br>
+                            processingで制作しました。<br>
+                            全体の向きをマウスで操作できます。
+                            <br>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+
+            <div style="display: none;" id="hidden-content-area">
+
+                <div id="detail-pitagora" class="popup-content">
+                    <h3>ピタゴラスイッチ</h3>
+                    <p class="tag">ジャンル：ツール / 制作時期：2025年</p>
+                    <div class="detail-body">
+                        <video src="pitagora.mp4" controls autoplay muted loop playsinline></video>
+                        <p>
+                            MP実習課題<br>
+                            processing上でfisicaを活用したピタゴラスイッチを制作しました。<br>
+                            日本をテーマにしていて、「三色団子が串にささる」「達磨落とし」といった要素を含めました。<br><br>
+                        </p>
+                    </div>
+                </div>
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+
+            <div style="display: none;" id="hidden-content-area">
+
+                <div id="detail-WPiano" class="popup-content">
+                    <h3>WPiano</h3>
+                    <p class="tag">ジャンル：ゲーム　/ 制作時期：2025年</p>
+                    <div class="detail-body">
+                        <video src="WPiano.mp4" controls autoplay muted loop playsinline></video>
+                        <p>
+                            WP実習課題<br>
+                            three.jsライブラリを使用した幻想的なピアノ演奏サイトです。<br>
+                            録音・再生機能がついています。<br>
+                        </p>
+                    </div>
+                </div>
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+
+            <div style="display: none;" id="hidden-content-area">
+
+                <div id="detail-eat" class="popup-content">
+                    <h3>音楽を利用した咀嚼行動変容のための調査</h3>
+                    <p class="tag">ジャンル：研究 / 制作時期：2025年</p>
+                    <div class="detail-body two-images">
+
+                        <img src="eat/スライド1.PNG" .png" alt="画像1">
+                        <img src="eat/スライド2.PNG" alt="画像2">
+                    </div>
+                </div>
+                <div id="detail-dual" class="popup-content">
+                </div>
+            </div>
+</body>
+
+</html>
